@@ -48,13 +48,13 @@ export default function Home() {
   return (
     <div>
       {/* top */}
-      <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
-        <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
-          Find your next <span className="text-slate-500">perfect</span>
+      <div className="flex flex-col gap-6 p-28 px-9 max-w-6xl mx-auto bg-slate-700">
+        <h1 className="text-slate-200 font-bold text-3xl lg:text-6xl">
+          Find your next <span className="text-slate-400">perfect</span>
           <br />
           place with ease
         </h1>
-        <div className="text-gray-400 text-xs sm:text-sm">
+        <div className="text-slate-200 text-xs sm:text-sm">
           Estate
 Sphere is the best place to find your next perfect place to
           live.
@@ -63,7 +63,7 @@ Sphere is the best place to find your next perfect place to
         </div>
         <Link
           to={"/search"}
-          className="text-xs sm:text-sm text-blue-800 font-bold hover:underline"
+          className="text-xs sm:text-sm text-blue-400 font-bold hover:underline"
         >
           Let's get started...
         </Link>
@@ -93,11 +93,11 @@ Sphere is the best place to find your next perfect place to
         {offerListings && offerListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">
+              <h2 className="text-2xl font-semibold text-slate-400">
                 Recent offers
               </h2>
               <Link
-                className="text-sm text-blue-800 hover:underline"
+                className="text-sm text-blue-400 hover:underline"
                 to={"/search?offer=true"}
               >
                 Show more offers
@@ -113,11 +113,11 @@ Sphere is the best place to find your next perfect place to
         {rentListings && rentListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">
+              <h2 className="text-2xl font-semibold text-slate-400">
                 Recent places for rent
               </h2>
               <Link
-                className="text-sm text-blue-800 hover:underline"
+                className="text-sm text-blue-400 hover:underline"
                 to={"/search?type=rent"}
               >
                 Show more places for rent
@@ -133,11 +133,11 @@ Sphere is the best place to find your next perfect place to
         {saleListings && saleListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">
+              <h2 className="text-2xl font-semibold text-slate-400">
                 Recent places for sale
               </h2>
               <Link
-                className="text-sm text-blue-800 hover:underline"
+                className="text-sm text-blue-400 hover:underline"
                 to={"/search?type=sale"}
               >
                 Show more places for sale
