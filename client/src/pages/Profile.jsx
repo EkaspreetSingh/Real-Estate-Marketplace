@@ -30,12 +30,6 @@ export default function Profile() {
   const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
 
-  // firebase storage
-  // allow read;
-  // allow write: if
-  // request.resource.size < 2 * 1024 * 1024 &&
-  // request.resource.contentType.matches('image/.*')
-
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -92,7 +86,6 @@ export default function Profile() {
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
-    // console.log(formData);
   };
 
   const handleDeleteUser = async () => {
@@ -127,40 +120,40 @@ export default function Profile() {
     }
   };
 
-  // const handleShowListings = async () => {
-  //   try {
-  //     setShowListingsError(false);
-  //     const res = await fetch(`/api/user/listings/${currentUser._id}`);
-  //     const data = await res.json();
-  //     if (data.success === false) {
-  //       setShowListingsError(true);
-  //       return;
-  //     }
+  const handleShowListings = async () => {
+    try {
+      setShowListingsError(false);
+      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const data = await res.json();
+      if (data.success === false) {
+        setShowListingsError(true);
+        return;
+      }
 
-  //     setUserListings(data);
-  //   } catch (error) {
-  //     setShowListingsError(true);
-  //   }
-  // };
+      setUserListings(data);
+    } catch (error) {
+      setShowListingsError(true);
+    }
+  };
 
-  // const handleListingDelete = async (listingId) => {
-  //   try {
-  //     const res = await fetch(`/api/listing/delete/${listingId}`, {
-  //       method: "DELETE",
-  //     });
-  //     const data = await res.json();
-  //     if (data.success === false) {
-  //       console.log(data.message);
-  //       return;
-  //     }
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingId}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
 
-  //     setUserListings((prev) =>
-  //       prev.filter((listing) => listing._id !== listingId)
-  //     );
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingId)
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
@@ -180,9 +173,7 @@ export default function Profile() {
         />
         <p className="text-sm self-center">
           {fileUploadError ? (
-            <span className="text-red-700">
-              Error Image upload 
-            </span>
+            <span className="text-red-700">Error Image upload</span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
@@ -238,8 +229,7 @@ export default function Profile() {
           Sign out
         </span>
       </div>
-
-      {/* <p className="text-red-700 mt-5">{error ? error : ""}</p>
+      <p className="text-red-700 mt-5">{error ? error : ""}</p>
       <p className="text-green-700 mt-5">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
@@ -249,7 +239,6 @@ export default function Profile() {
       <p className="text-red-700 mt-5">
         {showListingsError ? "Error showing listings" : ""}
       </p>
-
       {userListings && userListings.length > 0 && (
         <div className="flex flex-col gap-4">
           <h1 className="text-center mt-7 text-2xl font-semibold">
@@ -288,7 +277,7 @@ export default function Profile() {
             </div>
           ))}
         </div>
-      )} */}
+      )}{" "}
     </div>
   );
 }
