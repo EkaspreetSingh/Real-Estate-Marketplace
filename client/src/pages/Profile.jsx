@@ -30,12 +30,6 @@
 //   const [userListings, setUserListings] = useState([]);
 //   const dispatch = useDispatch();
 
-//   // firebase storage
-//   // allow read;
-//   // allow write: if
-//   // request.resource.size < 2 * 1024 * 1024 &&
-//   // request.resource.contentType.matches('image/.*')
-
 //   useEffect(() => {
 //     if (file) {
 //       handleFileUpload(file);
@@ -292,12 +286,10 @@
 //   );
 // }
 
-import React from 'react'
+import React from "react";
 
 const Profile = () => {
-  return (
-    <div>Profile</div>
-  )
-}
+  return <div>Profile</div>;
+};
 
-export default Profile
+export default Profile;
